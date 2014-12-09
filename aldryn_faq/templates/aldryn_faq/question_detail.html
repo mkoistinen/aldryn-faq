@@ -2,12 +2,23 @@
 {% load i18n cms_tags %}
 {% load url from future %}
 
-{% block content_faq %}
-<div class="faq-detail">
-	<h2>{% render_model object "category" "category" %}</h2>
-	<h3>{% render_model object "title" %}</h3>
-	{% if question.answer_text %}<div class="faq-answer">{% render_model object "answer_text" "answer_text" "" safe %}</div>{% endif %}
-	<div class="faq-content">{% render_placeholder object.answer 660 %}</div>
-	<p class="faq-back"><a href="{% url 'aldryn_faq:faq-category' object.category.slug %}">{% trans "Back" %}</a></p>
+{% block faq_content %}
+<div class="aldryn aldryn-faq aldryn-faq-detail">
+    <h2>
+        <a href="#" class="label label-primary pull-right">{% render_model object "category" "category" %}</a>
+        {% render_model object "title" %}
+    </h2>
+
+    {% if question.answer_text %}
+        <div class="lead">{% render_model object "answer_text" "answer_text" "" safe %}</div>
+    {% endif %}
+
+    <div class="aldryn-faq-content">
+        {% render_placeholder object.answer 800 %}
+    </div>
+
+    <ul class="pager">
+        <li class="previous"><a href="{% url 'aldryn_faq:faq-category' object.category.slug %}"><span aria-hidden="true">&larr;</span> {% trans "Back" %}</a></li>
+    </ul>
 </div>
 {% endblock %}

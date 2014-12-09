@@ -1,1 +1,3 @@
-{% include "aldryn_faq/plugins/latest_questions.html" %}
+<div class="aldryn aldryn-faq aldryn-faq-list">
+    {% include "aldryn_faq/includes/question_list.html" with object_list=instance.get_questions %}
+</div>

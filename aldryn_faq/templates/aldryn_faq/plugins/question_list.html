@@ -1,5 +1,3 @@
-<div class="plugin plugin-faq">
-	{% with list="full" %}
-	{% include "aldryn_faq/includes/question_list.html" with object_list=instance.get_questions %}
-	{% endwith %}
+<div class="aldryn aldryn-faq aldryn-faq-list">
+    {% include "aldryn_faq/includes/question_list.html" with object_list=instance.get_questions %}
 </div>
