@@ -22,4 +22,5 @@ flake8
 selenium
 six
 South
+django-appconf
 -e git+https://github.com/aldryn/aldryn-search.git#egg=aldryn-search
